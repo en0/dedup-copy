@@ -16,7 +16,7 @@ class DeduplicatorImpl(Deduplicator):
         for i, file in enumerate(files):
             hash = self._hasher.hash_file(file)
             if hash in seen_hashes:
-                self._log.info("Found Duplicate: ", file)
+                self._log.info("Found Duplicate: %s", file)
             else:
                 yield file
                 seen_hashes.add(hash)

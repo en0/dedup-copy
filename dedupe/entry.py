@@ -21,7 +21,6 @@ class Arguments(NamedTuple):
         ap.add_argument("outdir", help="Name of the output directory", type=str)
         ap.add_argument("--log-level", default="INFO", choices={"DEBUG", "INFO", "CRITICAL", "ERROR"})
         opts = ap.parse_args()
-        print(opts)
         return Arguments(
             input_dir=opts.indir,
             output_dir=opts.outdir,
@@ -44,7 +43,7 @@ def main(opts: Arguments):
         makedirs(path.dirname(target), exist_ok=True)
         copy(file, target)
 
-    print("success")
+    log.info("Completed Successfully")
 
 
 def iterate_files(root_path):
